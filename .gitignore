@@ -13,6 +13,7 @@ last-change
 .DS_Store
 example/ivy/**/build/
 example/ivy/android/gradle/
+!libs/**
 
 # Xcode configuration files.
 *.xcworkspace

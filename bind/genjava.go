@@ -1597,6 +1597,10 @@ func (g *JavaGen) GenJava() error {
 	g.Printf("public abstract class %s {\n", g.className())
 	g.Indent()
 	g.Printf("static {\n")
+	if strings.EqualFold(g.javaPkgName(g.Pkg), g.className()) {
+		g.Indent()
+		g.Printf("Seq.init(\"%s\"); \n", g.javaPkgName(g.Pkg))
+	}
 	g.Indent()
 	g.Printf("Seq.touch(); // for loading the native library\n")
 	if g.Pkg != nil {

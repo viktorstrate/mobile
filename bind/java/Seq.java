@@ -33,11 +33,11 @@ public class Seq {
 	// The singleton GoRefQueue
 	private static final GoRefQueue goRefQueue = new GoRefQueue();
 
-	static {
-		System.loadLibrary("gojni");
-		init();
-		Universe.touch();
-	}
+    public static void init(String libName) {
+        System.loadLibrary(libName);
+        init();
+        Universe.touch();
+   }
 
 	// setContext sets the context in the go-library to be used in RunOnJvm.
 	public static void setContext(Context context) {
